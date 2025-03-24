@@ -30,7 +30,9 @@ def main():
     opt = FLAGS.pop('opt')
     cfg.merge_dict(FLAGS)
     cfg.merge_dict(opt)
-    trainer = Trainer(cfg, mode='train_eval' if FLAGS['eval'] else 'train')
+    trainer = Trainer(cfg,
+                      mode='train_eval' if FLAGS['eval'] else 'train',
+                      task='rec')
     trainer.train()
 
 
